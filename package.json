@@ -1,43 +1,44 @@
 {
-	"name": "grunt-gcc",
-	"description": "Minify JavaScript files with Google Closure Compiler.",
-	"version": "0.2.2",
-	"homepage": "https://github.com/darsain/grunt-gcc",
-	"author": {
-		"name": "Darsain",
-		"url": "http://darsa.in"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/darsain/grunt-gcc.git"
-	},
-	"bugs": {
-		"url": "https://github.com/darsain/grunt-gcc/issues"
-	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://opensource.org/licenses/MIT"
-		}
-	],
-	"main": "Gruntfile.js",
-	"engines": {
-		"node": "*"
-	},
-	"scripts": {
-		"test": "grunt test"
-	},
-	"dependencies": {
-		"gcc": "1.x"
-	},
-	"devDependencies": {
-		"grunt-contrib-jshint": "~0.6.0",
-		"grunt-contrib-clean": "~0.4.0",
-		"grunt-tagrelease": "~0.2.0",
-		"grunt-bumpup": "~0.2.0",
-		"grunt": "~0.4.0"
-	},
-	"keywords": [
-		"gruntplugin"
-	]
+  "name": "grunt-gcc",
+  "description": "Minify JavaScript files with Google Closure Compiler.",
+  "version": "0.2.2",
+  "homepage": "https://github.com/darsain/grunt-gcc",
+  "author": {
+    "name": "Darsain",
+    "url": "http://darsa.in"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/darsain/grunt-gcc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/darsain/grunt-gcc/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "gcc": "1.x",
+    "grunt-lib-contrib": "~0.6.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-tagrelease": "~0.2.0",
+    "grunt-bumpup": "~0.2.0",
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
 }
