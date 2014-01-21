@@ -13,11 +13,12 @@ module.exports = function(grunt) {
 
 	grunt.registerMultiTask('gcc', 'Minify JavaScript files with Closure Compiler.', function () {
 
-		var options = this.options();
+		var options = this.options({
+			banner: '',
+			report: false
+		});
 		var done = this.async();
 		var gccOptions = {};
-		var banner = '';
-		var report = false;
 		var completed  = 0;
 
 		// Parse options
@@ -25,12 +26,7 @@ module.exports = function(grunt) {
 			Object.keys(options).forEach(function (key) {
 				switch (key) {
 					case 'banner':
-						if (options.banner) {
-							banner = options.banner + '\n';
-						}
-						break;
 					case 'report':
-						report = options.report;
 						break;
 					default:
 						gccOptions[key] = options[key];
@@ -40,7 +36,6 @@ module.exports = function(grunt) {
 
 		// Iterate over all src-dest file pairs.
 		this.files.forEach(function (f, i, files) {
-			var result = banner;
 			var source = f.src.filter(function (filepath) {
 				// Warn on and remove invalid source files (if nonull was set).
 				if (!grunt.file.exists(filepath)) {
@@ -70,16 +65,16 @@ module.exports = function(grunt) {
 				}
 				completed++;
 
-				result += stdout;
+				var result = options.banner + '\n' + stdout;
 				grunt.file.write(f.dest, result);
 				grunt.log.writeln('File `' + f.dest + '` created.');
 
 				// Print min-max info
-				if(report) {
-					var preMinimize = source.reduce(function(contents, file) {
+				if(options.report) {
+					var originalContents = source.reduce(function(contents, file) {
 						return contents + grunt.file.read(file);
-					}, "");
-					contrib.minMaxInfo(result, preMinimize, options.report);
+					}, '');
+					contrib.minMaxInfo(result, originalContents, options.report);
 				}
 
 				// File completed
